@@ -17,7 +17,7 @@
     (function () {
       try {
         const saved = localStorage.getItem('mc_theme');
-        const theme = saved === 'light' || saved === 'dark' ? saved : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        const theme = saved === 'light' || saved === 'dark' ? saved : 'light';
         document.documentElement.dataset.theme = theme;
       } catch (_) { document.documentElement.dataset.theme = 'light'; }
       document.documentElement.classList.add('js');
@@ -74,7 +74,7 @@
   .navbar{min-height:85px;display:flex;align-items:center;justify-content:space-between;gap:20px}
   .brand{display:inline-flex;gap:9px;align-items:center;flex-shrink:0;min-width:0}
   .brand-icon{width:51px;height:51px;object-fit:contain;transition:transform .35s;filter:drop-shadow(0 1px 0 rgba(0,0,0,.08))}
-  html[data-theme="dark"] .brand-icon{filter:brightness(0) saturate(100%) invert(78%) sepia(18%) saturate(649%) hue-rotate(342deg)}
+  html[data-theme="dark"] .brand-icon{filter:drop-shadow(0 1px 0 rgba(0,0,0,.18))}
   .brand:hover .brand-icon{transform:rotate(-12deg)}
   .brand-name,.brand-kicker{display:block}
   .brand-name{font-family:var(--serif);font-size:25px;font-weight:600;letter-spacing:-.067em;line-height:.85;white-space:nowrap}
