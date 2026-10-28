@@ -160,6 +160,9 @@
   .bundle-price{font-family:var(--serif);font-size:24px;font-weight:600}
   .bundle-price small{font-family:var(--sans);font-size:10px;font-weight:500;color:var(--muted)}
   .quality-band{position:relative;background:#33231b;color:#f8ebe1;padding:67px 0;overflow:hidden}
+  .study-note{background:var(--surface-2);padding:78px 0;text-align:center;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+  .study-note h2{max-width:650px;margin:17px auto 16px}
+  .study-note p{max-width:540px;margin:0 auto;color:var(--muted);font-size:13px;line-height:1.85}
   .quality-band:before{content:"";position:absolute;right:-160px;top:-340px;width:580px;height:580px;border-radius:50%;border:1px solid rgba(255,255,255,.08)}
   .quality-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
   .quality-item{text-align:center;padding:4px 22px;border-right:1px solid rgba(255,255,255,.12)}
@@ -288,9 +291,9 @@
     </a>
     <div class="nav-links" id="navLinks">
       <a href="#utama" class="active">Utama</a>
+      <a href="#cara-tempah">Cara Tempah</a>
       <a href="#menu">Menu</a>
       <a href="#tentang">Tentang Kami</a>
-      <a href="#cara-tempah">Cara Tempah</a>
       <a href="#faq">FAQ</a>
     </div>
     <div class="nav-actions">
@@ -366,6 +369,13 @@
         <div class="step reveal"><span class="step-index">03</span><h3>Isi Google Form</h3><p>Lengkapkan butiran tempahan dalam borang.</p></div>
         <div class="step reveal"><span class="step-index">04</span><h3>Tunggu Pengesahan</h3><p>Penjual akan menyemak pesanan dan menghubungi anda.</p></div>
       </div>
+    </div>
+  </section>
+  <section class="study-note" aria-label="Tentang StudyBites">
+    <div class="container">
+      <div class="eyebrow">Untuk setiap hari</div>
+      <h2>Teman kecil untuk hari yang sibuk.</h2>
+      <p>Lembut, penuh rasa dan sesuai dinikmati bila-bila masa — ketika belajar, bekerja atau berehat.</p>
     </div>
   </section>
   <section class="section faq-section" id="faq" aria-labelledby="faqTitle">
@@ -469,6 +479,7 @@ const DISPLAY_PRODUCTS = PRODUCTS.slice(0, 4).map((product, index) => ({
   $$('.brand-kicker').forEach(el => { el.textContent = SITE_CONFIG.brandKicker; });
   $$('.brand-icon').forEach(img => { img.src = 'images/Logo.png'; });
   $('.story-art img').src = $('.hero-photo-frame img').src;
+  document.querySelector('.hero').after(document.querySelector('.steps-section'));
   $('.announcement-inner span:last-child').textContent = 'Pilih perisa kegemaran anda.';
   const qualityCopy = [
     ['Rasa memuaskan', 'Setiap perisa dibuat untuk dinikmati.'],
@@ -526,8 +537,7 @@ const DISPLAY_PRODUCTS = PRODUCTS.slice(0, 4).map((product, index) => ({
   function openWhatsapp(event) {
     event.preventDefault();
     if (!whatsappUrl) { showToast('Nombor WhatsApp belum ditetapkan. Edit whatsappNumber dalam SITE_CONFIG.'); return; }
-    const newTab = window.open(whatsappUrl,'_blank','noopener,noreferrer');
-    if (!newTab) window.location.href = whatsappUrl;
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
   }
   $('#whatsappButton').addEventListener('click', openWhatsapp);
   $('#footerWhatsapp').addEventListener('click', openWhatsapp);
@@ -549,9 +559,11 @@ const DISPLAY_PRODUCTS = PRODUCTS.slice(0, 4).map((product, index) => ({
     if (urlOK(SITE_CONFIG.googleFormUrl)) window.open(SITE_CONFIG.googleFormUrl, '_blank', 'noopener,noreferrer');
     else showToast('Pautan Google Form belum ditetapkan.');
   });
-  const cardObserver = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('in-view'); obs.unobserve(entry.target); } });
-  }, {threshold:.08, rootMargin:'0px 0px 30px 0px'});
+  const cardObserver = window.IntersectionObserver
+    ? new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('in-view'); obs.unobserve(entry.target); } });
+      }, {threshold:.08, rootMargin:'0px 0px 30px 0px'})
+    : { observe: el => el.classList.add('in-view'), unobserve: () => {} };
   renderProducts();
   $$('.filter-btn').forEach(btn => btn.addEventListener('click', () => {
     $$('.filter-btn').forEach(b => b.setAttribute('aria-pressed', String(b===btn)));
@@ -597,7 +609,7 @@ const DISPLAY_PRODUCTS = PRODUCTS.slice(0, 4).map((product, index) => ({
       const d = document.documentElement;
       const max = d.scrollHeight - innerHeight;
       $('#topProgress').style.width = (max > 0 ? scrollY / max * 100 : 0) + '%';
-      const ids = ['utama','menu','tentang','cara-tempah','faq'];
+       const ids = ['utama','cara-tempah','menu','tentang','faq'];
       let current = 'utama';
       ids.forEach(id => { let el = document.getElementById(id); if (el && el.getBoundingClientRect().top <= 145) current = id; });
       navAnchors.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
