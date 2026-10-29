@@ -7,7 +7,7 @@
   <meta name="description" content="StudyBites soft cookies yang lembut, premium dan penuh rasa untuk menemani sesi belajar, bekerja atau bersantai.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="STUDYBITES — Soft Cookies">
-  <meta property="og:description" content="Study Hard, Snack Soft. Empat perisa soft cookies StudyBites, RM5 sebiji.">
+  <meta property="og:description" content="Study Hard, Snack Soft. Empat perisa soft cookies StudyBites, RM5.50 sebiji.">
   <title>STUDYBITES — Soft Cookies yang buat hari lebih manis</title>
   <link rel="icon" type="image/png" href="images/Logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -561,6 +561,34 @@
     .product-card:hover { transform:none; }
   }
 
+
+  /* Promo card: placed directly below the menu for a clear offer highlight. */
+  .promo-section { padding: 8px 0 82px; background: var(--bg); }
+  .promo-card { position:relative; isolation:isolate; display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:30px; overflow:hidden; padding:34px 40px; border:1px solid #e9b79d; border-radius:28px; background:linear-gradient(115deg,#fff0df 0%,#ffe1d2 58%,#f8d1bf 100%); color:#511d07; box-shadow:0 16px 40px rgba(81,29,7,.09); }
+  .promo-card:before { content:""; position:absolute; z-index:-1; width:230px; height:230px; right:20%; top:-155px; border:1px dashed rgba(81,29,7,.18); border-radius:50%; }
+  .promo-cookie-art { width:100px; height:100px; display:grid; place-items:center; border:1px solid rgba(81,29,7,.12); border-radius:50%; background:rgba(255,253,249,.68); font-size:54px; transform:rotate(-12deg); box-shadow:0 8px 22px rgba(81,29,7,.08); }
+  .promo-kicker { display:inline-block; margin-bottom:9px; color:#9c4426; font-size:10px; font-weight:800; letter-spacing:.19em; }
+  .promo-copy h2 { margin:0 0 10px; font-size:clamp(27px,3.2vw,40px); line-height:1.08; letter-spacing:-.05em; color:#511d07; }
+  .promo-copy h2 em { color:#b34f2c; font-style:normal; }
+  .promo-copy p { margin:0 0 5px; color:#684130; font-size:14px; line-height:1.7; }
+  .promo-copy p strong { color:#511d07; }
+  .promo-note { color:#815c49; font-size:11px; }
+  .promo-price-wrap { min-width:155px; display:flex; flex-direction:column; align-items:center; justify-content:center; padding-left:27px; border-left:1px solid rgba(81,29,7,.15); }
+  .promo-old-price { color:#9a7866; font-size:12px; text-decoration:line-through; }
+  .promo-price { color:#511d07; font-family:var(--heading-font); font-size:53px; font-weight:800; letter-spacing:-.07em; line-height:1; }
+  .promo-for { margin-top:6px; color:#8f3b20; font-size:9px; font-weight:800; letter-spacing:.16em; }
+  .promo-btn { margin-top:17px; min-height:41px; padding:0 17px; background:#511d07; color:#fff5ea; font-size:11px; }
+  .promo-btn:hover { background:#753719; color:#fff5ea; }
+  html[data-theme="dark"] .promo-card { border-color:#76513e; background:linear-gradient(115deg,#382a23 0%,#493127 58%,#59382c 100%); color:#f8efe5; }
+  html[data-theme="dark"] .promo-copy h2, html[data-theme="dark"] .promo-copy p strong, html[data-theme="dark"] .promo-price { color:#fff0e2; }
+  html[data-theme="dark"] .promo-copy h2 em, html[data-theme="dark"] .promo-kicker, html[data-theme="dark"] .promo-for { color:#f3b78e; }
+  html[data-theme="dark"] .promo-copy p, html[data-theme="dark"] .promo-note { color:#e0c5b2; }
+  html[data-theme="dark"] .promo-price-wrap { border-left-color:rgba(255,225,196,.2); }
+  html[data-theme="dark"] .promo-cookie-art { background:#30241e; border-color:#76513e; }
+  html[data-theme="dark"] .promo-btn { background:#f3b78e; color:#2b1b15; }
+  @media (max-width:850px) { .promo-card { grid-template-columns:auto 1fr; gap:22px; padding:29px; } .promo-price-wrap { grid-column:1 / -1; flex-direction:row; flex-wrap:wrap; gap:10px; border-left:0; border-top:1px solid rgba(81,29,7,.15); padding:20px 0 0; } .promo-price { font-size:43px; } .promo-btn { margin-top:0; margin-left:8px; } }
+  @media (max-width:520px) { .promo-section { padding:0 0 58px; } .promo-card { grid-template-columns:1fr; text-align:center; gap:16px; padding:26px 20px; } .promo-cookie-art { width:75px; height:75px; font-size:40px; margin:auto; } .promo-copy h2 { font-size:31px; } .promo-copy p { font-size:12px; } .promo-price-wrap { justify-content:center; gap:8px; } .promo-price { font-size:42px; } .promo-btn { margin-left:0; } }
+
   </style>
 </head>
 <body>
@@ -631,6 +659,25 @@
       <div class="product-grid" id="productGrid" aria-live="polite"></div>
     </div>
   </section>
+  <section class="promo-section" aria-label="Promosi istimewa StudyBites">
+    <div class="container">
+      <div class="promo-card reveal">
+        <div class="promo-cookie-art" aria-hidden="true">🍪</div>
+        <div class="promo-copy">
+          <span class="promo-kicker">✦ PROMO ISTIMEWA ✦</span>
+          <h2>Lagi banyak, lagi <em>berbaloi!</em></h2>
+          <p>Nikmati soft cookies kegemaran anda — <strong>3 biskut cuma RM15</strong>.</p>
+          <span class="promo-note">Pilih mana-mana 3 perisa pilihan anda.</span>
+        </div>
+        <div class="promo-price-wrap">
+          <span class="promo-old-price">RM16.50</span>
+          <span class="promo-price">RM15</span>
+          <span class="promo-for">UNTUK 3 BISKUT</span>
+          <a class="btn promo-btn" href="#cara-tempah">Dapatkan Promo <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
   <section class="quality-band" aria-label="Keistimewaan kami">
     <div class="container quality-grid">
       <div class="quality-item reveal"><div class="quality-icon"><svg viewBox="0 0 24 24"><path d="M12 3c5 0 9 4 9 9s-4 9-9 9-9-4-9-9 4-9 9-9Z"/><path d="M8 9h.01M15 8h.01M12 15h.01M17 15h.01" stroke-width="2.5"/></svg></div><h3>Rasa yang kaya</h3><p>Perisa yang dipilih untuk setiap gigitan.</p></div>
@@ -668,7 +715,7 @@
       <div class="faq-heading reveal"><div class="eyebrow">Ada soalan?</div><h2 id="faqTitle">Jom jawab<br>yang <em style="color:var(--accent)">penting.</em></h2><p>Apa-apa yang anda perlu tahu sebelum membuat pesanan. Jika ada pertanyaan lain, hubungi kami melalui WhatsApp.</p></div>
       <div class="faq-list reveal">
         <details class="faq-item"><summary>Macam mana nak buat tempahan? <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>Tekan butang Order Now di bahagian atas website. Anda akan dibawa ke Google Form untuk melengkapkan tempahan.</p></details>
-        <details class="faq-item"><summary>Berapa harga satu cookies? <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>Setiap soft cookies StudyBites berharga RM5.00 sebiji, untuk semua empat perisa.</p></details>
+        <details class="faq-item"><summary>Berapa harga satu cookies? <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>Setiap soft cookies StudyBites berharga RM5.50 sebiji, untuk semua empat perisa.</p></details>
         <details class="faq-item"><summary>Boleh pilih lebih daripada satu perisa? <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>Anda boleh merujuk pilihan perisa dan kuantiti yang tersedia dalam borang tempahan.</p></details>
         <details class="faq-item"><summary>Adakah stok sentiasa tersedia? <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>Stok adalah terhad. Semua tempahan bergantung kepada ketersediaan semasa.</p></details>
         <details class="faq-item"><summary>Macam mana nak sertai komuniti StudyBites? <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>Tekan ikon WhatsApp di penjuru bawah website untuk menyertai komuniti WhatsApp rasmi StudyBites.</p></details>
@@ -704,7 +751,7 @@ const SITE_CONFIG = {
    brandName: 'STUDYBITES',                 // Nama jenama
    brandDisplay: 'STUDYBITES',              // Nama pada logo/navbar
    brandKicker: 'STUDYBITES SOFT COOKIES',
-  announcement: '4 Perisa Pilihan · RM5 Sebiji · Study Hard, Snack Soft.',
+  announcement: '4 Perisa Pilihan · RM5.50 Sebiji · Study Hard, Snack Soft.',
   googleFormUrl: 'https://forms.gle/AitT2UKitCMS1gQo6',
   whatsappNumber: '',
   whatsappUrl: 'https://chat.whatsapp.com/CoBpmI1GusH4riDOdz6ZqB',
@@ -739,7 +786,7 @@ const MENU_COPY = [
 const DISPLAY_PRODUCTS = PRODUCTS.slice(0, 4).map((product, index) => ({
   ...product,
   ...MENU_COPY[index],
-  price: 5,
+  price: 5.50,
   image: `images/menu ${index + 1}.jpg`
 }));
 
@@ -769,7 +816,7 @@ const DISPLAY_PRODUCTS = PRODUCTS.slice(0, 4).map((product, index) => ({
   const qualityCopy = [
     ['Soft & Chewy', 'Tekstur lembut dengan rasa yang memuaskan dalam setiap gigitan.'],
     ['Four Flavours, Four Cravings', 'Daripada Chocolate yang kaya hingga Matcha yang unik, semuanya untuk diterokai.'],
-    ['Only RM5', 'Empat pilihan perisa, satu harga. Pilih cookies mengikut selera anda.'],
+    ['Only RM5.50', 'Empat pilihan perisa, satu harga. Pilih cookies mengikut selera anda.'],
     ['Made for Your Breaks', 'Sesuai dinikmati ketika belajar, berehat atau bersama rakan.']
   ];
   $$('.quality-item').forEach((item, index) => {
@@ -791,7 +838,7 @@ const DISPLAY_PRODUCTS = PRODUCTS.slice(0, 4).map((product, index) => ({
   $$('.faq-item p').forEach(p => { p.textContent = p.textContent.replace(/penjual/g, 'kami'); });
   $('.outro .eyebrow').textContent = 'One More Sweet Thing';
   $('.outro h2').innerHTML = 'Your Next Sweet Break <em>Starts Here.</em>';
-  $('.outro p').textContent = 'Chocolate, S’Mores, Red Velvet atau Matcha? Apa pun pilihan anda, nikmati soft cookies StudyBites pada harga RM5 sebiji. Tekan Order Now untuk membuat tempahan.';
+  $('.outro p').textContent = 'Chocolate, S’Mores, Red Velvet atau Matcha? Apa pun pilihan anda, nikmati soft cookies StudyBites pada harga RM5.50 sebiji. Tekan Order Now untuk membuat tempahan.';
   $('.footer-brand>p').textContent = 'Empat perisa soft cookies untuk melengkapkan waktu belajar, rehat dan momen kecil anda. Study Hard, Snack Soft.';
   $('.footer-bottom span:last-child').textContent = 'Study Hard, Snack Soft. ♥';
   $('#copyrightBrand').textContent = SITE_CONFIG.brandName;
