@@ -7,7 +7,7 @@
   <meta name="description" content="StudyBites soft cookies yang lembut, premium dan penuh rasa untuk menemani sesi belajar, bekerja atau bersantai.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="STUDYBITES — Soft Cookies">
-  <meta property="og:description" content="Study Hard, Snack Soft. Empat perisa soft cookies StudyBites, RM5.50 sebiji.">
+  <meta property="og:description" content="Study Hard, Snack Soft. Empat perisa soft cookies StudyBites, RM5.50 sekeping.">
   <title>STUDYBITES — Soft Cookies yang buat hari lebih manis</title>
   <link rel="icon" type="image/png" href="images/Logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -715,7 +715,7 @@
       <div class="faq-heading reveal"><div class="eyebrow">Ada soalan?</div><h2 id="faqTitle">Jom jawab<br>yang <em style="color:var(--accent)">penting.</em></h2><p>Apa-apa yang anda perlu tahu sebelum membuat pesanan. Jika ada pertanyaan lain, hubungi kami melalui WhatsApp.</p></div>
       <div class="faq-list reveal">
         <details class="faq-item"><summary>Macam mana nak buat tempahan? <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>Tekan butang Order Now di bahagian atas website. Anda akan dibawa ke Google Form untuk melengkapkan tempahan.</p></details>
-        <details class="faq-item"><summary>Berapa harga satu cookies? <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>Setiap soft cookies StudyBites berharga RM5.50 sebiji, untuk semua empat perisa.</p></details>
+        <details class="faq-item"><summary>Berapa harga satu cookies? <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>Setiap soft cookies StudyBites berharga RM5.50 sekeping, untuk semua empat perisa.</p></details>
         <details class="faq-item"><summary>Boleh pilih lebih daripada satu perisa? <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>Anda boleh merujuk pilihan perisa dan kuantiti yang tersedia dalam borang tempahan.</p></details>
         <details class="faq-item"><summary>Adakah stok sentiasa tersedia? <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>Stok adalah terhad. Semua tempahan bergantung kepada ketersediaan semasa.</p></details>
         <details class="faq-item"><summary>Macam mana nak sertai komuniti StudyBites? <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>Tekan ikon WhatsApp di penjuru bawah website untuk menyertai komuniti WhatsApp rasmi StudyBites.</p></details>
@@ -751,7 +751,7 @@ const SITE_CONFIG = {
    brandName: 'STUDYBITES',                 // Nama jenama
    brandDisplay: 'STUDYBITES',              // Nama pada logo/navbar
    brandKicker: 'STUDYBITES SOFT COOKIES',
-  announcement: '4 Perisa Pilihan · RM5.50 Sebiji · Study Hard, Snack Soft.',
+  announcement: '4 Perisa Pilihan · RM5.50 Sekeping · Study Hard, Snack Soft.',
   googleFormUrl: 'https://forms.gle/AitT2UKitCMS1gQo6',
   whatsappNumber: '',
   whatsappUrl: 'https://chat.whatsapp.com/CoBpmI1GusH4riDOdz6ZqB',
@@ -838,7 +838,7 @@ const DISPLAY_PRODUCTS = PRODUCTS.slice(0, 4).map((product, index) => ({
   $$('.faq-item p').forEach(p => { p.textContent = p.textContent.replace(/penjual/g, 'kami'); });
   $('.outro .eyebrow').textContent = 'One More Sweet Thing';
   $('.outro h2').innerHTML = 'Your Next Sweet Break <em>Starts Here.</em>';
-  $('.outro p').textContent = 'Chocolate, S’Mores, Red Velvet atau Matcha? Apa pun pilihan anda, nikmati soft cookies StudyBites pada harga RM5.50 sebiji. Tekan Order Now untuk membuat tempahan.';
+  $('.outro p').textContent = 'Chocolate, S’Mores, Red Velvet atau Matcha? Apa pun pilihan anda, nikmati soft cookies StudyBites pada harga RM5.50 sekeping. Tekan Order Now untuk membuat tempahan.';
   $('.footer-brand>p').textContent = 'Empat perisa soft cookies untuk melengkapkan waktu belajar, rehat dan momen kecil anda. Study Hard, Snack Soft.';
   $('.footer-bottom span:last-child').textContent = 'Study Hard, Snack Soft. ♥';
   $('#copyrightBrand').textContent = SITE_CONFIG.brandName;
@@ -878,7 +878,7 @@ const DISPLAY_PRODUCTS = PRODUCTS.slice(0, 4).map((product, index) => ({
     const matches = DISPLAY_PRODUCTS.filter(p => filter === 'semua' || (filter === 'popular' ? ['Paling Popular', 'Pilihan Ramai'].includes(p.tag) : p.category === filter));
     $('#productGrid').innerHTML = matches.map(p => `<article class="product-card reveal">
       <div class="product-media"><img src="${p.image}" alt="Soft cookies ${escapeHTML(p.name)}" width="640" height="350">${p.tag ? `<span class="product-tag">${escapeHTML(p.tag)}</span>` : ''}</div>
-      <div class="product-content"><div class="product-meta">${escapeHTML(p.categoryText)}</div><h3>${escapeHTML(p.name)}</h3><p class="product-desc">${escapeHTML(p.description)}</p><div class="product-foot"><div><span class="price-label">Harga bermula</span><span class="price">${money(p.price)}</span> <span class="per-piece">/ biji</span></div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 21 7v10l-9 5-9-5V7l9-5ZM3 7l9 5 9-5M12 12v10"/></svg></div></div>
+      <div class="product-content"><div class="product-meta">${escapeHTML(p.categoryText)}</div><h3>${escapeHTML(p.name)}</h3><p class="product-desc">${escapeHTML(p.description)}</p><div class="product-foot"><div><span class="price-label">Harga bermula</span><span class="price">${money(p.price)}</span> <span class="per-piece">/ keping</span></div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 21 7v10l-9 5-9-5V7l9-5ZM3 7l9 5 9-5M12 12v10"/></svg></div></div>
     </article>`).join('');
     $('#menuCount').textContent = `${matches.length} perisa untuk diterokai`;
     if (window.IntersectionObserver && !rm) {
